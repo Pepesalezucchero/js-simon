@@ -6,17 +6,26 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 
 //elementi richiamati
 const simonDiv = document.querySelector(".simon-says");
-const simonButton = document.getElementById("simon-btn");
+const simonButton = document.getElementById("start-btn");
+const userDiv = document.querySelector(".user-btn");
+const userButton = document.getElementById("end-btn");
 const simonNums = [];
 const userNums = [];
-
-//creo 5 numeri casuali e li faccio visualizzare in pagina
+let timeSimon = 1;
 
 //faccio funzionare il bottone con la generazione dei numeri
 simonButton.addEventListener("click",
 
     function () {
 
+        //aggiungo il timer di 30 secondi e faccio sparire i numeri generati automaticamente
+        setTimeout(function () {
+            simon.classList.add("inactive");
+            simonDiv.append(simon);
+
+            userDiv.classList.remove("inactive");
+        }, timeSimon * 1000);
+        
         //genero i 5 numeri
         const randomNums = arreySimonNum(0, 100, 5);
         console.log(randomNums);
@@ -26,30 +35,8 @@ simonButton.addEventListener("click",
         simon.classList.add("pc-numbers");
         simonDiv.append(simon);
         simon.append("Simone ha detto: ", randomNums);
-
-        //aggiungo il timer di 30 secondi e faccio sparire i numeri generati automaticamente
-        const timeSimon = 30;
-
-        setTimeout(function() {
-            simon.classList.add("inactive");
-            simonDiv.append(simon);
-        }, timeSimon * 1000);
     }
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //funzione che genera i numeri voluti

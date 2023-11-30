@@ -5,18 +5,26 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-h1, p, .poz-btn {
+h1, p, .user-btn, .simon-btn {
     text-align: center;
     margin: 20px 0;
 }
 
-button {
+button, input {
     padding: 2px 20px;
     font-size: 18px;
 }
 
 .pc-numbers {
     font-size: 18px;
+}
+
+.user-btn {
+    margin-top: 60px;
+}
+
+input {
+    padding: 2px;
 }
 
 .inactive {
