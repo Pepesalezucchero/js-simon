@@ -18,3 +18,7 @@ button {
 .pc-numbers {
     font-size: 18px;
 }
+
+.inactive {
+    display: none;
+}

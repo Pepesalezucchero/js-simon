@@ -26,8 +26,18 @@ simonButton.addEventListener("click",
         simon.classList.add("pc-numbers");
         simonDiv.append(simon);
         simon.append("Simone ha detto: ", randomNums);
+
+        //aggiungo il timer di 30 secondi e faccio sparire i numeri generati automaticamente
+        const timeSimon = 30;
+
+        setTimeout(function() {
+            simon.classList.add("inactive");
+            simonDiv.append(simon);
+        }, timeSimon * 1000);
     }
 );
+
+
 
 
 
