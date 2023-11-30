@@ -10,7 +10,7 @@ h1, p, .user-btn, .simon-btn {
     margin: 20px 0;
 }
 
-button, input {
+button, input, span {
     padding: 2px 20px;
     font-size: 18px;
 }
@@ -29,4 +29,13 @@ input {
 
 .inactive {
     display: none;
+}
+
+.result {
+    display: flex;
+    justify-content: space-around;
+}
+
+span {
+    margin-top: 20px;
 }
