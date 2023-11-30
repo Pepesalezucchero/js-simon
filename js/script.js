@@ -12,6 +12,7 @@ const userButton = document.getElementById("end-btn");
 const simonNums = [];
 const userNums = [];
 let timeSimon = 1;
+let randomNums;
 
 //faccio funzionare il bottone con la generazione dei numeri
 simonButton.addEventListener("click",
@@ -22,12 +23,12 @@ simonButton.addEventListener("click",
         setTimeout(function () {
             simon.classList.add("inactive");
             simonDiv.append(simon);
-
+            //compare l'input per l'utente e il bottone
             userDiv.classList.remove("inactive");
         }, timeSimon * 1000);
         
         //genero i 5 numeri
-        const randomNums = arreySimonNum(0, 100, 5);
+        randomNums = arreySimonNum(0, 100, 5);
         console.log(randomNums);
 
         //creo i numeri sulla pagina
@@ -38,6 +39,43 @@ simonButton.addEventListener("click",
     }
 );
 
+//cotrollo delle due serie di numeri
+userButton.addEventListener("click",
+
+    function () {
+        //chiedo all'utente di rispondere
+        alert("Miraccomando, pensaci bene ed inserisci un numero alla volta e in ordine come erano. Fai attenzione queste operazioni sono irreversibili :)");
+        userNums.push(parseInt(prompt("Iserisci il primo numero")));
+        userNums.push(parseInt(prompt("Iserisci il secondo numero")));
+        userNums.push(parseInt(prompt("Iserisci il terzo numero")));
+        userNums.push(parseInt(prompt("Iserisci il quarto numero")));
+        userNums.push(parseInt(prompt("Iserisci il quinto numero")));
+        
+        console.log(userNums);
+
+        //transformo e unisco i due array in stringhe
+        const simonNumControl = simonNums.join("");
+        const userNumcontrol = userNums.join("");
+        console.log(simonNumControl);
+        console.log(userNumcontrol);
+
+        //controllo come sono i due risultati
+
+        //in caso di ugual risultato
+        if (userNumcontrol === simonNumControl) {
+            alert("Bestia bravo! Hai risposto giusto!");
+          //in caso di risultato diverso
+        } else {
+            alert("Maleee, molto male! Hai sbagliato chicco riprova");
+        }
+
+        //scrittura del risultato su pagina
+        const playSimonResult = document.getElementById("simon-result");
+        playSimonResult.innerHTML = `<span>Numeri di Simone: ${randomNums} </span>`;
+        const playerResult = document.getElementById("your-result");
+        playerResult.innerHTML = `<span>Tuoi numeri: ${userNums} </span>`;
+    }
+)
 
 //funzione che genera i numeri voluti
 function numbersMinMax (min, max) {
@@ -46,7 +84,6 @@ function numbersMinMax (min, max) {
 
 //funzione che crea i numeri
 function arreySimonNum (minNum, maxNum, lunghezzaArr) {
-
    //riempio l'array
    while (simonNums.length < lunghezzaArr) {
 
